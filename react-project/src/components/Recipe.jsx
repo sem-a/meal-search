@@ -1,6 +1,10 @@
 import { ReactComponent as Favourite } from './../img/favourite.svg';
+import { Link } from 'react-router-dom';
 
 function Recipe(props) {
+
+    const ingr = JSON.parse(props.recipe.ingr).ingr;
+
     return (
         <div className="recipe_card">
             <div className="recipe_card_container">
@@ -22,14 +26,14 @@ function Recipe(props) {
                     <div className="ingr_title">
                         <h3>Ингридиенты:</h3>
                     </div>
-                    {props.recipe.ingr.map( (el) => {
-                        return <div className="ingr_item">
+                    {ingr.map( (el) => {
+                        return <div key={el} className="ingr_item">
                             <p>{el}</p>
                         </div>
                     })}
                 </div>
                 <div className="recipe_card_btn">
-                    <a href="#">Открыть</a>
+                    <Link to='/'>Открыть</Link>
                 </div>
             </div>
         </div>

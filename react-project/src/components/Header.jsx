@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './../css/header.css';
 import { ReactComponent as Favourite } from './../img/favourite.svg';
 
@@ -14,7 +15,7 @@ function Header() {
                     <div className="header_item">
                         <nav className="menu">
                             <ul className="menu_list">
-                                <li className="menu_item"><a href="#"><Favourite/></a></li>
+                                <li className="menu_item"><Link to='/favourite'><Favourite/></Link></li>
                             </ul>
                         </nav>
                     </div>

@@ -2,26 +2,27 @@ import { useEffect, useState } from "react";
 import { URL } from "../js/const";
 
 function Form() {
-    const [kitchens, setKitchens] = useState([{ id: 0, name: "Все" }]);
-    const [types, setTypes] = useState([{ id: 0, name: "Все" }]);
+    const [kitchens, setKitchens] = useState([{ id: 0, kitchen: "Все" }]);
+    const [types, setTypes] = useState([{ id: 0, type: "Все" }]);
 
-    const fetchData = async(table) => {
-        const response = await fetch(URL + `${table}/all`);
+    const fetchAll = async(table) => {
+        const response = await fetch(`${URL + table}/all`);
         const data = await response.json();
 
         return data.values;
     }
 
     const getSelect = async() => {
-        const kitchens = await fetchData('kitchen');
-        const types = await fetchData('type');
-        setKitchens([...kitchens, ...kitchens.values]);
-        setTypes([...types, ...types.values]);
+        const kitchensTemp = await fetchAll('kitchen');
+        const typesTemp = await fetchAll('type');
+
+        setKitchens([kitchens[0], ...kitchensTemp]);
+        setTypes([types[0], ...typesTemp]);
     }
 
-    useEffect( () => {
-        getSelect();
-    }, []);
+    useEffect(() => {
+        getSelect()
+    }, [])
 
     return (
         <div className="form_container">
@@ -55,7 +56,7 @@ function Form() {
                                             className="form_option"
                                             value={el.id}
                                         >
-                                            {el.name}
+                                            {el.kitchen}
                                         </option>
                                     );
                                 })}
@@ -77,7 +78,7 @@ function Form() {
                                             className="form_option"
                                             value={el.id}
                                         >
-                                            {el.name}
+                                            {el.type}
                                         </option>
                                     );
                                 })}

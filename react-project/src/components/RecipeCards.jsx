@@ -5,6 +5,18 @@ import { URL } from "../js/const";
 function RecipeCards() {
     const [recipes, setRecipes] = useState([]);
 
+    const fetchAll = async(table) => {
+        const response = await fetch(`${URL + table}/all`);
+        const data = await response.json();
+
+        return data.values;
+    }
+
+    const getRecipes = async() => {
+        const recipesTemp = await fetchAll('recipe');
+        setRecipes([...recipesTemp]);
+    }
+
     const createResultPhrase = (lenght) => {
         let titles = ["рецепт", "рецепта", "рецептов"];
         let cases = [2, 0, 1, 1, 1, 2];
@@ -30,17 +42,23 @@ function RecipeCards() {
             }`;
         }
     };
-    const resultPhrase = createResultPhrase(recipes.length);
+
+    const resultPhrase = createResultPhrase(recipes.length); 
+
+    useEffect(() => {
+        getRecipes(); 
+    }, [])
+
     return (
         <div className="recipe_cards">
             <h2 className="recipe_cards_title">
                 Результаты поиска: <span>{resultPhrase}</span>
             </h2>
-            {/* {recipes.foreach((el) => {
-                return <Recipe recipe={el} key={el.id} />;
-            })
-            } */}
-
+            {
+                recipes.map( (el) => {
+                    return <Recipe recipe={el} key={el.id} />
+                })
+            }
         </div>
     );
 }
