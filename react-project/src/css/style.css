@@ -17,6 +17,17 @@ body {
 main.main {
     padding: 78px 0;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #fce4a4; 
+}
+::-webkit-scrollbar-thumb {
+    background-color: #443133;
+    border-radius: 20px;
+    border: #fce4a4 2px solid;
+}
 /*---------*/
 
 /* Form.jsx */
