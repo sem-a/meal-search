@@ -1,9 +1,11 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'meal_search',
+  host: 'sql.freedb.tech',
+  port: '3306',
+  user: 'freedb_sem-a',
+  password: '4fPSx&yehxvkMtb',
+  database: 'freedb_meal_search',
 });
 
 connection.connect( (err) => {

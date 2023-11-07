@@ -9,9 +9,9 @@ module.exports = (app) => {
   app.route('/').get(indexController.index);
 
   app.route('/recipe/all').get(recipeController.all_recipe);
+  app.route('/recipe/one').get(recipeController.one_recipe);
 
   app.route('/kitchen/all').get(kitchenController.all_kitchen);
-
+  
   app.route('/type/all').get(typeController.all_type);
-
 };
