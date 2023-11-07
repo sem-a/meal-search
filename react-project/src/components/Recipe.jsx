@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as Favourite } from "./../img/favourite.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Recipe(props) {
 
-    const ingr = JSON.parse(props.recipe.ingr).ingr;
+    const [ingr, setIngr] = useState([]);
+    const navigate = useNavigate();
 
+    useEffect( () => {
+        try {
+            setIngr(props.recipe.ingr.ingr);
+        } catch(e) {
+            navigate('/error')
+        }
+    }, []);
 
     return (
         <div className="recipe_card">
@@ -41,7 +49,7 @@ function Recipe(props) {
                     })}
                 </div>
                 <div className="recipe_card_btn">
-                    <Link to="/">Открыть</Link>
+                    <Link to={`recipe/${props.recipe.id}`}>Открыть</Link>
                 </div>
             </div>
         </div>

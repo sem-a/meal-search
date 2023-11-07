@@ -21,7 +21,11 @@ function Form() {
     }
 
     useEffect(() => {
-        getSelect()
+        try {
+            getSelect();
+        } catch(e) {
+            
+        }
     }, [])
 
     return (

@@ -14,6 +14,10 @@ body {
     width: 600px;
     margin: 0 auto;
 }
+.wrapper {
+    margin: 0 auto;
+    width: 80%;
+}
 main.main {
     padding: 78px 0;
 }
@@ -68,6 +72,7 @@ select.form_select {
     padding: 14px;
     border-radius: 10px;
     box-shadow: 0px 5px 10px 0px rgba(68, 49, 51, 0.2);
+    -webkit-appearance: none;
 }
 option.form_option {
     font-family: "Montserrat", sans-serif;
@@ -208,3 +213,167 @@ p.recipe_card_desc {
     right: 15%;
 }
 /*----------------*/
+
+/* PageRecipe.jsx */
+
+.recipe_page_content {
+    margin-top: 42px;
+}
+.recipe_page_title h2{
+    font-size: 24px;
+    color: #443133;
+    font-weight: 700;
+    margin-bottom: 21px;
+}
+.recipe_page_desc {
+    color: #443133;
+    font-size: 16px;
+    line-height: 20px;
+}
+.recipe_page_desc p {
+    padding-top: 3px;
+}
+.recipe_page_desc img {
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 0px rgba(68, 49, 51, 0.2);
+    float: left;
+    margin: 0 21px 42px 0;
+}
+
+.recipe_page_steps {
+    margin-top: 21px;
+    clear: both;
+}
+.steps_title h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: #443133;
+}
+.steps_items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 42px;
+}
+.steps_item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 21px;
+    width: 350px;
+    margin: 14px;
+    position: relative;
+    box-shadow: 0px 5px 10px 0px rgba(68, 49, 51, 0.2);
+}
+.steps_item p {
+    font-size: 16px;
+    color: #443133;
+    line-height: 20px;
+}
+.steps_number {
+    position: absolute;
+    background-color: #443133;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    top: -21px;
+    left: -21px;
+}
+.steps_number p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+.recipe_page_ingr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 21px;
+    margin-top: 21px;
+}
+.page_ingr_title h3{
+    font-size: 16px;
+    font-weight: 700;
+    color: #443133;
+    padding: 7px 0px;
+    margin: 0 14px 0 0;
+}
+.ingr_item {
+    margin: 0 10px 10px 0;
+}
+.ingr_item p {
+    font-size: 16px;
+    text-align: center;
+    color: #443133;
+    background-color: white;
+    border-radius: 20px;
+    padding: 7px 10px;
+    box-shadow: 0px 5px 10px 0px rgba(68, 49, 51, 0.2);
+}
+
+/*----------------*/
+
+/* Page404.jsx */
+
+.page404_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page404_title h2 {
+    font-size: 192px;
+    font-weight: 700;
+    color: #443133;
+    text-align: center;
+}
+.page404_title {
+    border-bottom: 3px solid #443133;
+}
+.page404_subtitle {
+    margin-top: 21px;
+}
+.page404_subtitle h3{
+    font-size: 48px;
+    font-weight: 700;
+    color: #443133;
+    text-align: center;
+}
+.page404_text {
+    margin-top: 14px;
+}
+.page404_text p {
+    text-align: center;
+    font-size: 16px;
+    color: #443133;
+}
+
+/*--------------*/
+
+/* PageError.jsx */
+
+.error_title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.error_title img {
+    width: 100px;
+}
+.error_title h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #443133;
+    padding-bottom: 10px;
+}
+.error_title h3 {
+    font-size: 20px;
+    color: #443133;
+    margin-top: 14px;
+    text-align: center;
+}
+
+/*---------------*/
