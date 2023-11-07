@@ -19,7 +19,12 @@ function PageRecipe() {
     const getRecipe = async () => {
         try {
             const recipeTemp = await fetchOne('recipe', id);
-            setRecipe(recipeTemp);
+            console.log(recipeTemp)
+            if(recipeTemp === undefined) {
+                navigate('/404');
+            } else {
+                setRecipe(recipeTemp);
+            }
         } catch(e) {
             navigate('/error');
         }
@@ -52,7 +57,7 @@ function PageRecipe() {
                             </div>
                             {recipe.ingr.ingr.map((el) => {
                                 return (
-                                    <div key={el} className="ingr_item">
+                                    <div key={el} className="page_ingr_item">
                                         <p>{el}</p>
                                     </div>
                                 );

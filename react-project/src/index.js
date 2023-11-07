@@ -16,7 +16,7 @@ root.render(
         <Route path='/' element={<App />} />
         <Route path='/favourite' element={<Favourite />}/>
         <Route path='/recipe/:id' element={<PageRecipe />}/>
-        <Route component={<Page404 />} />
+        <Route path='/404' element={<Page404 />} />
         <Route path='/error' element={<Error />} />
       </Routes>
     </BrowserRouter>

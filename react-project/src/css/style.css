@@ -301,10 +301,10 @@ p.recipe_card_desc {
     padding: 7px 0px;
     margin: 0 14px 0 0;
 }
-.ingr_item {
+.page_ingr_item {
     margin: 0 10px 10px 0;
 }
-.ingr_item p {
+.page_ingr_item p {
     font-size: 16px;
     text-align: center;
     color: #443133;

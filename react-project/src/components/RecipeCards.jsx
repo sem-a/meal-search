@@ -17,7 +17,12 @@ function RecipeCards() {
     const getRecipes = async () => {
         try {
             const recipesTemp = await fetchAll('recipe');
-            setRecipes([...recipesTemp]);
+            console.log(recipesTemp);
+            if(recipesTemp === undefined) {
+                navigate('/error');
+            } else {
+                setRecipes([...recipesTemp]);
+            }
         } catch(e) {
             navigate('/error');
         }
