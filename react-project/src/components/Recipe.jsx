@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { ReactComponent as Favourite } from "./../img/favourite.svg";
 import { Link, useNavigate } from "react-router-dom";
 
-function Recipe(props) {
+function Recipe({recipe}) {
 
     const [ingr, setIngr] = useState([]);
     const navigate = useNavigate();
 
     useEffect( () => {
         try {
-            setIngr(props.recipe.ingr.ingr);
+            setIngr(recipe.ingr.ingr);
         } catch(e) {
             navigate('/error')
         }
@@ -20,7 +20,7 @@ function Recipe(props) {
             <div className="recipe_card_container">
                 <div className="recipe_card_header">
                     <div className="recipe_title">
-                        <h2>{props.recipe.name}</h2>
+                        <h2>{recipe.name}</h2>
                     </div>
                     <div className="recipe_card_fav">
                         <Favourite className="fav_icon" />
@@ -33,7 +33,7 @@ function Recipe(props) {
                                 require('../img/salat.jpg')
                             }
                         />
-                        {props.recipe.description}
+                        {recipe.description}
                     </p>
                 </div>
                 <div className="recipe_card_ingr">
@@ -49,7 +49,7 @@ function Recipe(props) {
                     })}
                 </div>
                 <div className="recipe_card_btn">
-                    <Link to={`recipe/${props.recipe.id}`}>Открыть</Link>
+                    <Link to={`recipe/${recipe.id}`}>Открыть</Link>
                 </div>
             </div>
         </div>

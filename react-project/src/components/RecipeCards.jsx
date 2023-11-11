@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import Recipe from "./Recipe";
-import { URL } from "../js/const";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAll } from "../js/db/query";
+import { addToRecipes } from "../store/recipes/recipes.slice";
 
 function RecipeCards() {
-    const [recipes, setRecipes] = useState([]);
+
+    const dispatch = useDispatch();
+    const recipesStore = useSelector( (state) => state.recipes);
     const navigate = useNavigate();
 
-    const fetchAll = async (table) => {
-        const response = await fetch(`${URL + table}/all`);
-        const data = await response.json();
-
-        return data.values;
-    }
+    const [recipes, setRecipes] = useState([]);
 
     const getRecipes = async () => {
         try {
@@ -21,6 +20,7 @@ function RecipeCards() {
             if(recipesTemp === undefined) {
                 navigate('/error');
             } else {
+                
                 setRecipes([...recipesTemp]);
             }
         } catch(e) {

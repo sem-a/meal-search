@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useParams, useNavigate } from "react-router-dom";
-import { URL } from "../js/const";
+import { fetchOne } from "../js/db/query";
 
 function PageRecipe() {
 
@@ -9,12 +9,6 @@ function PageRecipe() {
 
     const [recipe, setRecipe] = useState({ steps: { steps: [''] }, ingr: { ingr: [''] } });
     const navigate = useNavigate();
-
-    const fetchOne = async (table, id) => {
-        const response = await fetch(URL + table + '/one?id=' + id);
-        const data = await response.json();
-        return data.values[0];
-    }
 
     const getRecipe = async () => {
         try {

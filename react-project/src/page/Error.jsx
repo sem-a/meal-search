@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 
 function Error() {
+
     return(
         <div className="page_error">
             <Header />
